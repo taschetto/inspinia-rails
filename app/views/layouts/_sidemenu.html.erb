@@ -1,7 +1,9 @@
       <ul class="nav" id="side-menu">
         <li class="nav-header">
           <div class="dropdown profile-element">
-            <span><%= image_tag "profile_small.jpg", class: "img-circle", alt: "image" %></span>
+            <% if current_user.profile_picture? %>
+            <span><%= image_tag current_user.profile_picture, class: "img-circle", alt: "image", size: "75" %></span>
+            <% end %>
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
               <span class="clear">
                 <span class="block m-t-xs"><strong class="font-bold"><%= "#{current_user.first_name} #{current_user.last_name}" %></strong></span>
