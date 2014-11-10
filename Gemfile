@@ -9,6 +9,9 @@ ruby '2.1.3'
 gem 'pg'
 gem 'seed_dump'
 
+# User authentication
+gem 'devise'
+
 # Front-end related gems
 # Use Twitter Bootstrap with LESS support
 gem 'therubyracer'
@@ -28,6 +31,14 @@ gem 'turbolinks'
 
 # Use Gretel for generating breadcrumbs
 gem 'gretel'
+
+# Use Figaro for managing sensitive data in environment variables
+gem 'figaro'
+
+# Use Heroku's 12Factor gem
+gem 'rails_12factor', group: :production
+# Use Postmark to send e-mails
+gem 'postmark-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
