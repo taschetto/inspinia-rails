@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>InspiniaRails</title>
+  <title><%= yield :title %> - Fator 7 IN</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="skin-1">
+  <div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+      <div class="sidebar-collapse">
+        <%= render "layouts/sidemenu" %>
+      </div>
+    </nav>
+    <div id="page-wrapper" class="gray-bg">
+      <%= render "layouts/topmenu" %>
+      <%= render "layouts/pageheader" %>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper wrapper-content">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+      <%= render "layouts/footer" %>
+    </div>
+  </div>
 </body>
 </html>
