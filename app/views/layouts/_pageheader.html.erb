@@ -1,16 +1,11 @@
         <div class="row wrapper border-bottom white-bg page-heading">
           <div class="col-sm-4">
             <h2><%= yield :title %></h2>
-            <%= breadcrumbs pretext: "You are here: ",
-                            separator: " &rsaquo; ",
-                            style: :ol,
+            <%= breadcrumbs style: :ol,
                             class: "breadcrumb",
-                            current_class: "active" %>
-          </div>
-          <div class="col-sm-8">
-            <div class="title-action">
-              <a href="" class="btn btn-primary">Ação #1</a>
-              <a href="" class="btn btn-primary">Ação #2</a>
-            </div>
+                            current_class: "active",
+                            display_single_fragment: true,
+                            link_current: true,
+                            autoroot: true %>
           </div>
         </div>

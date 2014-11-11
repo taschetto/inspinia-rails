@@ -1,3 +1,5 @@
+<% content_for :title, "Login" %>
+
         <h3>Fator 7 Tecnologia da Informação</h3>
         <%= devise_error_messages! %>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "m-t", role: "form") do |f| %>
