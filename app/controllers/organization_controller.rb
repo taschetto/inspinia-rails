@@ -23,7 +23,7 @@ class OrganizationController < ApplicationController
   end
 
   def create
-    @organization = Client.new(client_params)
+    @organization = Organization.new(organization_params)
 
     if @organization.save
       flash[:notice] = 'Organization was successfully created.'
@@ -61,6 +61,6 @@ class OrganizationController < ApplicationController
   end
 
   def organization_params
-    params.require(:organization).permit(:name, :fullname, :cnpj, :address1, :address2, :address3, :zipcode, :city, :state, :country, :website, :primary_email)
+    params.require(:organization).permit(:name, :full_name, :cnpj, :address1, :address2, :address3, :zipcode, :city, :state, :country, :website, :primary_email, :is_company, :is_client, :is_vendor)
   end
 end

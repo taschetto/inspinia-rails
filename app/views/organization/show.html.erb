@@ -1,4 +1,4 @@
-<% content_for :title, "Detalhe Organização #{@organization.name}" %>
+<% content_for :title, @organization.name %>
 <% breadcrumb :organization, @organization %>
 
 <div class="ibox">
@@ -8,9 +8,15 @@
         <div class="m-b-md">
           <%= link_to "Editar", edit_organization_path(@organization), class: "btn btn-white btn-xs pull-right" %>
           <h1><%= @organization.full_name %></h1>
-          <span class="btn btn-outline btn-danger dim" type="button"><i class="fa fa-heart"></i> Cliente</span>
-          <span class="btn btn-outline btn-success dim" type="button"><i class="fa fa-truck"></i> Fornecedor</span>
+          <% if @organization.is_company? %>
           <span class="btn btn-outline btn-primary dim" type="button"><i class="fa fa-star"></i> Fator 7</span>
+          <% end %>
+          <% if @organization.is_client? %>
+          <span class="btn btn-outline btn-danger dim" type="button"><i class="fa fa-heart"></i> Cliente</span>
+          <% end %>
+          <% if @organization.is_vendor? %>
+          <span class="btn btn-outline btn-success dim" type="button"><i class="fa fa-truck"></i> Fornecedor</span>
+          <% end %>
         </div>
 
         <dl class="dl-horizontal">

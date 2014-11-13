@@ -14,3 +14,13 @@ crumb :organization do |organization|
   link organization.name, organization
   parent :organizations
 end
+
+crumb :edit_organization do |organization|
+  link "Editar #{organization.name}", edit_organization_path(organization)
+  parent :organizations
+end
+
+crumb :new_organization do
+  link "Nova Organização", new_organization_path
+  parent :organizations
+end

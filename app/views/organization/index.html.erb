@@ -1,9 +1,12 @@
 <% content_for :title, "Organizações" %>
+<% content_for :actions do %>
+  <% link_to "Nova Organização", new_organization_path, class: "btn btn-primary"%>
+<% end %>
 <% breadcrumb :organizations %>
 
 <div class="ibox float-e-margins">
   <div class="ibox-title">
-    <h5>Lista de Organizações</h5>
+    <h5>Organizações</h5>
     <div class="ibox-tools">
       <a class="collapse-link">
         <i class="fa fa-chevron-up"></i>
