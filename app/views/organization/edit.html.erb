@@ -4,7 +4,7 @@
 <%= link_to "Atualizar Organização", "#", class: "btn btn-primary pull-right", onclick: '$(".edit_organization").submit()' %>
 <% end %>
 
-<%= form_for @organization, id: "org" do |f| %>
+<%= form_for @organization do |f| %>
   <div class="row">
     <div class="col-lg-12">
       <div class="ibox float-e-margins">

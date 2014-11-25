@@ -6,6 +6,8 @@ crumb :edit_registration do
   link "Editar perfil", edit_user_registration_path
 end
 
+# Organization Breadcrumbs
+
 crumb :organizations do
   link "Organizações", organization_index_path
 end
@@ -23,4 +25,25 @@ end
 crumb :new_organization do
   link "Nova Organização", new_organization_path
   parent :organizations
+end
+
+# Projects Breadcrumbs
+
+crumb :projects do
+  link "Projetos", project_index_path
+end
+
+crumb :project do |project|
+  link project.title, project
+  parent :projects
+end
+
+crumb :edit_project do |project|
+  link "Editar #{project.title}", edit_project_path(project)
+  parent :projects
+end
+
+crumb :new_project do
+  link "Novo Projeto", new_project_path
+  parent :projects
 end

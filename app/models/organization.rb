@@ -1,4 +1,8 @@
 class Organization < ActiveRecord::Base
+  has_many :projects
+
+  before_destroy :check_for_projects
+
   validates :name,      presence: true
   validates :full_name, presence: true
   validates :cnpj,      presence: true
@@ -9,4 +13,13 @@ class Organization < ActiveRecord::Base
   validates :country,   presence: true
   validates :website,   presence: true
   validates :primary_email, presence: true
+
+  private
+
+    def check_for_projects
+      if projects.any?
+        errors[:base] << "Cannot delete organization that has projects."
+        return false
+      end
+    end
 end
