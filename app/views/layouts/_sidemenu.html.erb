@@ -30,7 +30,7 @@
           <ul class="nav nav-second-level" data-no-turbolink="true">
             <li class="<%= 'active' if params[:controller] == 'organization' %>"><%= link_to "Organizações", organization_index_path %></li>
             <li class="<%= 'active' if params[:controller] == 'project' %>"><%= link_to "Projetos", project_index_path %></li>
-            <li><a href="#">Contatos</a></li>
+            <li class="<%= 'active' if params[:controller] == 'task' %>"><%= link_to "Tarefas", task_index_path %></li>
           </ul>
         </li>
         <li>
