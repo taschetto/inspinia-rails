@@ -47,3 +47,24 @@ crumb :new_project do
   link "Novo Projeto", new_project_path
   parent :projects
 end
+
+# Tasks Breadcrumbs
+
+crumb :tasks do
+  link "Tasks", task_index_path
+end
+
+crumb :task do |task|
+  link task.name, task
+  parent :tasks
+end
+
+crumb :edit_task do |task|
+  link "Editar #{task.name}", edit_task_path(task)
+  parent :tasks
+end
+
+crumb :new_task do
+  link "Nova Tarefa", new_task_path
+  parent :tasks
+end

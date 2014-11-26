@@ -1,0 +1,85 @@
+<% content_for :title, "Tasks" %>
+<% content_for :actions do %>
+  <% link_to "Nova Tarefa", new_task_path, class: "btn btn-primary" %>
+<% end %>
+<% breadcrumb :tasks %>
+
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h5>Filtro</h5>
+    <div class="ibox-tools">
+      <a class="collapse-link">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      </a>
+    </div>
+  </div>
+  <div class="ibox-content">
+    <%= form_tag task_index_path, method: "get", role: "search" do |f| %>
+      <div class="form-horizontal m-t-md">
+        <div class="form-group">
+          <%= label_tag :project_id, "Organization", class: "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= select_tag :project_id, options_for_select([["All", "0"]]) + options_for_select(Project.all.map {|s| [s.name, s.id]}, params[:project_id]), class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <%= submit_tag "Filtrar", class: "btn btn-sm btn-primary pull-right m-t-n-xs" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h5>Tarefas</h5>
+    <div class="ibox-tools">
+      <a class="collapse-link">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      </a>
+    </div>
+  </div>
+  <div class="ibox-content">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Organização</th>
+          <th>Projeto</th>
+          <th>Tarefa</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tasks.each do |t| %>
+          <tr>
+            <td><%= t.id %></td>
+            <td>
+              <strong><%= t.project.organization.name %></strong><br />
+              <small><%= t.project.organization.full_name %></small>
+            </td>
+            <td>
+              <strong><%= t.project.name %></strong><br />
+              <small><%= t.project.description %></small>
+            </td>
+            <td>
+              <strong><%= t.name %></strong><br />
+              <small><%= t.description %></small>
+            </td>
+            <td class="project-actions">
+              <%= link_to raw("#{fa_icon "folder"} Visualizar"), t, class: "btn btn-white btn-sm" %>
+              <%= link_to raw("#{fa_icon "pencil"} Editar"), edit_task_path(t), class: "btn btn-white btn-sm" %>
+              <%= link_to raw("#{fa_icon "close"} Excluir"), t, method: :delete, class: "btn btn-white btn-sm" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

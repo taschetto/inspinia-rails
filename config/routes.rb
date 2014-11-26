@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :organization
   resources :project
+  resources :task
   end
