@@ -34,12 +34,12 @@ crumb :projects do
 end
 
 crumb :project do |project|
-  link project.title, project
+  link project.name, project
   parent :projects
 end
 
 crumb :edit_project do |project|
-  link "Editar #{project.title}", edit_project_path(project)
+  link "Editar #{project.name}", edit_project_path(project)
   parent :projects
 end
 

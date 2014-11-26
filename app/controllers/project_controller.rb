@@ -63,7 +63,7 @@ class ProjectController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :description, :budget, :block, :organization_id)
+    params.require(:project).permit(:name, :description, :budget, :block, :organization_id)
   end
 
   def set_filter

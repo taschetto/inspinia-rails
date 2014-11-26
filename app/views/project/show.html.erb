@@ -1,4 +1,4 @@
-<% content_for :title, @project.title %>
+<% content_for :title, @project.name %>
 <% breadcrumb :project, @project %>
 
 <div class="ibox">
@@ -7,7 +7,7 @@
       <div class="col-lg-12">
         <div class="m-b-md">
           <%= link_to "Editar", edit_project_path(@project), class: "btn btn-white btn-xs pull-right" %>
-          <h1><%= @project.title %></h1>
+          <h1><%= @project.name %></h1>
           <h3><%= @project.description %></h3>
         </div>
 
