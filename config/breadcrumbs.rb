@@ -29,6 +29,10 @@ end
 
 # Projects Breadcrumbs
 
+crumb :all_projects do
+  link "Projetos", project_index_path
+end
+
 crumb :projects do |organization|
   link "Projetos", organization_project_index_path(organization)
   parent :organization, organization
@@ -50,6 +54,10 @@ crumb :project do |project|
 end
 
 # Tasks Breadcrumbs
+
+crumb :all_tasks do
+  link "Tarefas", task_index_path
+end
 
 crumb :tasks do |project|
   link "Tarefas", project_task_index_path(project)
