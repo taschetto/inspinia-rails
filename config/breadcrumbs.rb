@@ -12,8 +12,8 @@ crumb :organizations do
   link "Organizações", organization_index_path
 end
 
-crumb :organization do |organization|
-  link organization.name, organization
+crumb :new_organization do
+  link "Nova Organização", new_organization_path
   parent :organizations
 end
 
@@ -22,49 +22,59 @@ crumb :edit_organization do |organization|
   parent :organizations
 end
 
-crumb :new_organization do
-  link "Nova Organização", new_organization_path
+crumb :organization do |organization|
+  link organization.name, organization
   parent :organizations
 end
 
 # Projects Breadcrumbs
 
-crumb :projects do
-  link "Projetos", project_index_path
+crumb :all_projects do
+  link "Projetos", "#"
 end
 
-crumb :project do |project|
-  link project.name, project
-  parent :projects
+crumb :projects do |organization|
+  link "Projetos", organization_project_index_path(organization)
+  parent :organization, organization
+end
+
+crumb :new_project do |organization|
+  link "Novo Projeto", new_organization_project_path(organization)
+  parent :projects, organization
 end
 
 crumb :edit_project do |project|
   link "Editar #{project.name}", edit_project_path(project)
-  parent :projects
+  parent :all_projects
 end
 
-crumb :new_project do
-  link "Novo Projeto", new_project_path
-  parent :projects
+crumb :project do |project|
+  link project.name, project
+  parent :all_projects
 end
 
 # Tasks Breadcrumbs
 
-crumb :tasks do
-  link "Tasks", task_index_path
+crumb :all_tasks do
+  link "Tarefas", "#"
 end
 
-crumb :task do |task|
-  link task.name, task
-  parent :tasks
+crumb :tasks do |project|
+  link "Tarefas", project_task_index_path(project)
+  parent :project, project
+end
+
+crumb :new_task do |project|
+  link "Nova Tarefa", new_project_task_path(project)
+  parent :tasks, project
 end
 
 crumb :edit_task do |task|
   link "Editar #{task.name}", edit_task_path(task)
-  parent :tasks
+  parent :all_tasks
 end
 
-crumb :new_task do
-  link "Nova Tarefa", new_task_path
-  parent :tasks
+crumb :task do |task|
+  link task.name, task
+  parent :all_tasks
 end

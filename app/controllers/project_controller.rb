@@ -2,12 +2,11 @@ class ProjectController < ApplicationController
   respond_to :html, :json, :xml
 
   before_filter :authenticate_user!
+  before_action :set_organization, only: [:index, :new, :create]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :set_filter, only: [:index]
 
   def index
-    @projects = Project.order('id ASC') if !@organization
-    @projects = @organization.projects.order('id ASC') if @organization
+    @projects = @organization.projects.order('id ASC')
     respond_with(@projects)
   end
 
@@ -17,6 +16,7 @@ class ProjectController < ApplicationController
 
   def new
     @project = Project.new
+    @project.organization = @organization
     respond_with(@project)
   end
 
@@ -26,13 +26,14 @@ class ProjectController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.organization = @organization
 
     if @project.save
       flash[:notice] = 'Project was successfully created.'
       respond_with(@project, location: @project)
     else
       flash[:error] = @project.errors.full_messages
-      respond_with(@project.errors.full_messages, location: new_project_path)
+      respond_with(@project.errors.full_messages, location: new_organization_project_path(@organization))
     end
   end
 
@@ -47,26 +48,27 @@ class ProjectController < ApplicationController
   end
 
   def destroy
+    organization = @project.organization
     if @project.destroy
       flash[:notice] = 'Project was successfully destroyed.'
-      respond_with(nil, location: project_index_path)
+      respond_with(nil, location: organization_project_index_path(organization))
     else
       flash[:error] = @project.errors.full_messages
-      respond_with(@project.errors.full_messages,location: project_index_path)
+      respond_with(@project.errors.full_messages,location: organization_project_index_path(organization))
     end
   end
 
   private
+
+  def set_organization
+    @organization = Organization.find_by(id: params[:organization_id]) if params[:organization_id]
+  end
 
   def set_project
     @project = Project.find_by(id: params[:id])
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :budget, :block, :organization_id)
-  end
-
-  def set_filter
-    @organization = Organization.find_by(id: params[:organization_id]) if params[:organization_id]
+    params.require(:project).permit(:name, :description, :budget, :block)
   end
 end
