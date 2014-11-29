@@ -6,7 +6,11 @@ class ProjectController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = @organization.projects.order('id ASC')
+    if @organization
+      @projects = @organization.projects.order('id ASC')
+    else
+      @projects = Project.order('id ASC')
+    end
     respond_with(@projects)
   end
 

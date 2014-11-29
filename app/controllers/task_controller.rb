@@ -6,7 +6,11 @@ class TaskController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = @project.tasks.order('id ASC')
+    if @project
+      @tasks = @project.tasks.order('id ASC')
+    else
+      @tasks = Task.order('id ASC')
+    end
     respond_with(@tasks)
   end
 

@@ -30,7 +30,7 @@ end
 # Projects Breadcrumbs
 
 crumb :all_projects do
-  link "Projetos", "#"
+  link "Projetos", project_index_path
 end
 
 crumb :projects do |organization|
@@ -56,7 +56,7 @@ end
 # Tasks Breadcrumbs
 
 crumb :all_tasks do
-  link "Tarefas", "#"
+  link "Tarefas", task_index_path
 end
 
 crumb :tasks do |project|

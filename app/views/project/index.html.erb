@@ -1,8 +1,9 @@
 <% content_for :title, "Projects" %>
 <% content_for :actions do %>
   <% link_to "Novo Projeto", new_organization_project_path(@organization), class: "btn btn-primary" %>
-<% end %>
-<% breadcrumb :projects, @organization %>
+<% end if @organization %>
+<% breadcrumb :projects, @organization if @organization %>
+<% breadcrumb :all_projects if !@organization %>
 
 <div class="ibox float-e-margins">
   <div class="ibox-title">

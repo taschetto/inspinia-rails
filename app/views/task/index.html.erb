@@ -1,8 +1,9 @@
 <% content_for :title, "Tasks" %>
 <% content_for :actions do %>
   <% link_to "Nova Tarefa", new_project_task_path(@project), class: "btn btn-primary" %>
-<% end %>
-<% breadcrumb :tasks, @project %>
+<% end if @project%>
+<% breadcrumb :tasks, @project if @project %>
+<% breadcrumb :all_tasks if !@project %>
 
 <div class="ibox float-e-margins">
   <div class="ibox-title">

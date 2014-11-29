@@ -9,4 +9,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :project, only: :index
+  resources :task, only: :index
 end
