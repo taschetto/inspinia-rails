@@ -78,3 +78,24 @@ crumb :task do |task|
   link task.name, task
   parent :tasks, task.project
 end
+
+# Users Breadcrumbs
+
+crumb :users do
+  link "Usuários", user_index_path
+end
+
+crumb :user do |user|
+  link user.first_name, user
+  parent :users
+end
+
+crumb :new_user do
+  link "Novo Usuário", new_user_path
+  parent :users
+end
+
+crumb :edit_user do |user|
+  link "Editar #{user.first_name}", edit_user_path(user)
+  parent :users
+end

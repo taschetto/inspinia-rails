@@ -26,13 +26,15 @@
           <% end %>
         </li>
         <li class="<%= 'active' if params[:controller] == 'organization' or
-                                   params[:controller] == 'project' or
-                                   params[:controller] == 'task' %>">
+                                   params[:controller] == 'project'      or
+                                   params[:controller] == 'task'         or
+                                   params[:controller] == 'user'%>">
           <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Fator 7</span> <span class="fa arrow"></span></a>
           <ul class="nav nav-second-level" data-no-turbolink="true">
             <li class="<%= 'active' if params[:controller] == 'organization' %>"><%= link_to "Organizações", organization_index_path %></li>
             <li class="<%= 'active' if params[:controller] == 'project' %>"><%= link_to "Projetos", project_index_path %></li>
             <li class="<%= 'active' if params[:controller] == 'task' %>"><%= link_to "Tarefas", task_index_path %></li>
+            <li class="<%= 'active' if params[:controller] == 'user' %>"><%= link_to "Usuários", user_index_path %></li>
           </ul>
         </li>
         <li class="<%= 'active' if params[:controller] == 'time_entry' %>">

@@ -12,4 +12,5 @@ Rails.application.routes.draw do
 
   resources :project, only: :index
   resources :task, only: :index
+  resources :user
 end
