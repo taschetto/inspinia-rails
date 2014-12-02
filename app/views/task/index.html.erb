@@ -1,0 +1,44 @@
+<% content_for :title, "Tasks" %>
+<% content_for :actions do %>
+  <% link_to "Nova Tarefa", new_project_task_path(@project), class: "btn btn-primary" %>
+<% end if @project%>
+<% breadcrumb :tasks, @project if @project %>
+<% breadcrumb :all_tasks if !@project %>
+
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h5>Tarefas</h5>
+    <div class="ibox-tools">
+      <a class="collapse-link">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      </a>
+    </div>
+  </div>
+  <div class="ibox-content">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Tarefa</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tasks.each do |t| %>
+          <tr>
+            <td><%= t.id %></td>
+            <td>
+              <strong><%= t.name %></strong><br />
+              <small><%= t.description %></small>
+            </td>
+            <td class="project-actions">
+              <%= actions(t) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

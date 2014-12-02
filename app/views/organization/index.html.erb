@@ -45,12 +45,11 @@
               <small><%= mail_to org.primary_email, org.primary_email %></small>
             </td>
             <td class="project-actions">
-              <%= link_to raw("#{fa_icon "folder"} Visualizar"), organization_path(org), class: "btn btn-white btn-sm" %>
-              <%= link_to raw("#{fa_icon "pencil"} Editar"), edit_organization_path(org), class: "btn btn-white btn-sm" %>
-              <%= link_to raw("#{fa_icon "close"} Excluir"), organization_path(org), method: :delete, class: "btn btn-white btn-sm" %>
+              <%= actions(org) %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
+</div>

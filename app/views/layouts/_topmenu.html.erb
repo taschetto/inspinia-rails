@@ -17,7 +17,7 @@
                   <li>
                     <div class="dropdown-messages-box">
                       <a href="profile.html" class="pull-left">
-                        <%= image_tag "a7.jpg", class: "img-circle", alt: "image" %>
+                        <%= image_tag current_user.profile_picture, class: "img-circle", alt: "image" if current_user.profile_picture %>
                       </a>
                       <div class="media-body">
                         <small class="pull-right">46h ago</small>
@@ -30,7 +30,7 @@
                   <li>
                     <div class="dropdown-messages-box">
                       <a href="profile.html" class="pull-left">
-                        <%= image_tag "a4.jpg", class: "img-circle", alt: "image" %>
+                        <%= image_tag current_user.profile_picture, class: "img-circle", alt: "image" if current_user.profile_picture %>
                       </a>
                       <div class="media-body ">
                         <small class="pull-right text-navy">5h ago</small>
@@ -43,7 +43,7 @@
                   <li>
                     <div class="dropdown-messages-box">
                       <a href="profile.html" class="pull-left">
-                        <%= image_tag "profile.jpg", class: "img-circle", alt: "image" %>
+                        <%= image_tag current_user.profile_picture, class: "img-circle", alt: "image" if current_user.profile_picture %>
                       </a>
                       <div class="media-body ">
                         <small class="pull-right">23h ago</small>

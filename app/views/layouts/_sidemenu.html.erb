@@ -25,18 +25,22 @@
             <i class="fa fa-laptop"></i> <span class="nav-label">Dashboard</span>
           <% end %>
         </li>
-        <li class="<%= 'active' if params[:controller] == 'organization' %>">
+        <li class="<%= 'active' if params[:controller] == 'organization' or
+                                   params[:controller] == 'project'      or
+                                   params[:controller] == 'task'         or
+                                   params[:controller] == 'user'%>">
           <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Fator 7</span> <span class="fa arrow"></span></a>
           <ul class="nav nav-second-level" data-no-turbolink="true">
             <li class="<%= 'active' if params[:controller] == 'organization' %>"><%= link_to "Organizações", organization_index_path %></li>
-            <li><a href="#">Projetos</a></li>
-            <li><a href="#">Contatos</a></li>
+            <li class="<%= 'active' if params[:controller] == 'project' %>"><%= link_to "Projetos", project_index_path %></li>
+            <li class="<%= 'active' if params[:controller] == 'task' %>"><%= link_to "Tarefas", task_index_path %></li>
+            <li class="<%= 'active' if params[:controller] == 'user' %>"><%= link_to "Usuários", user_index_path %></li>
           </ul>
         </li>
-        <li>
+        <li class="<%= 'active' if params[:controller] == 'time_entry' %>">
           <a href="#"><i class="fa fa-clock-o"></i> <span class="nav-label">Horas</span><span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
-            <li><a href="#">Lançamentos</a></li>
+            <li class="<%= 'active' if params[:controller] == 'time_entry' %>"><%= link_to "Lançamentos", time_entry_index_path %></li>
             <li><a href="#">Relatório</a></li>
           </ul>
         </li>
