@@ -1,7 +1,7 @@
 class Organization < ActiveRecord::Base
   has_many :projects
-
   before_destroy :check_for_projects
+  usar_como_cnpj :cnpj
 
   validates :name,      presence: true
   validates :full_name, presence: true
