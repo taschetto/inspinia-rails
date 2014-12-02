@@ -1,0 +1,53 @@
+<% content_for :title, "Time Entries" %>
+<% content_for :actions do %>
+  <% link_to "Novo Apontamento", new_user_time_entry_path(@user), class: "btn btn-primary" %>
+<% end %>
+<% breadcrumb :time_entries, @user %>
+
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h5>Tarefas</h5>
+    <div class="ibox-tools">
+      <a class="collapse-link">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      </a>
+    </div>
+  </div>
+  <div class="ibox-content">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Apontamento</th>
+          <th>Memo</th>
+          <th>Usuário</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @time_entries.each do |te| %>
+          <tr>
+            <td><%= te.id %></td>
+            <td>
+              <strong><%= te.starts_at %></strong><br />
+              <strong><%= te.ends_at %></strong>
+            </td>
+            <td>
+              <%= te.memo %>
+            </td>
+            <td>
+              <%= te.user.first_name %>
+            </td>
+            <td class="project-actions">
+              <%= link_to raw("#{fa_icon "folder"} Visualizar"), te, class: "btn btn-white btn-sm" %>
+              <%= link_to raw("#{fa_icon "pencil"} Editar"), edit_time_entry_path(te), class: "btn btn-white btn-sm" %>
+              <%= link_to raw("#{fa_icon "close"} Excluir"), te, method: :delete, class: "btn btn-white btn-sm" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

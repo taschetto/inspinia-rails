@@ -49,4 +49,7 @@ gem 'spring', group: :development
 
 gem 'brcpfcnpj'
 
+gem 'momentjs-rails', '>= 2.8.1'
+gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
+
 # Gems úteis para o futuro: money-rails

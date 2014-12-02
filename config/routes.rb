@@ -8,9 +8,12 @@ Rails.application.routes.draw do
         resources :task
       end
     end
+    resources :user do
+      resources :time_entry
+    end
   end
 
   resources :project, only: :index
   resources :task, only: :index
-  resources :user
+  resources :time_entry, only: :index
 end

@@ -99,3 +99,24 @@ crumb :edit_user do |user|
   link "Editar #{user.first_name}", edit_user_path(user)
   parent :users
 end
+
+# Time Entries Breadcrumbs
+
+crumb :time_entries do |user|
+  link "Lançamentos", user_time_entry_index_path(user)
+end
+
+crumb :time_entry do |time_entry|
+  link "Lançamento #{time_entry.id}", time_entry
+  parent :time_entries, time_entry.user
+end
+
+crumb :new_time_entry do |user|
+  link "Novo Lançamento", new_user_time_entry_path(user)
+  parent :time_entries, user
+end
+
+crumb :edit_time_entry do |time_entry|
+  link "Editar Lançamento #{time_entry.id}", edit_time_entry_path(time_entry)
+  parent :time_entries, time_entry.user
+end

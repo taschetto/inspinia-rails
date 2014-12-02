@@ -40,7 +40,7 @@
         <li class="<%= 'active' if params[:controller] == 'time_entry' %>">
           <a href="#"><i class="fa fa-clock-o"></i> <span class="nav-label">Horas</span><span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
-            <li class="<%= 'active' if params[:controller] == 'time_entry' %>"><%= link_to "Lançamentos", "#" %></li>
+            <li class="<%= 'active' if params[:controller] == 'time_entry' %>"><%= link_to "Lançamentos", time_entry_index_path %></li>
             <li><a href="#">Relatório</a></li>
           </ul>
         </li>
