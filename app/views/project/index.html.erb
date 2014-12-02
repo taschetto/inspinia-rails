@@ -39,9 +39,7 @@
               <small>Bloqueia: <%= p.block %></small>
             </td>
             <td class="project-actions">
-              <%= link_to raw("#{fa_icon "folder"} Visualizar"), project_path(p), class: "btn btn-white btn-sm" %>
-              <%= link_to raw("#{fa_icon "pencil"} Editar"), edit_project_path(p), class: "btn btn-white btn-sm" %>
-              <%= link_to raw("#{fa_icon "close"} Excluir"), project_path(p), method: :delete, class: "btn btn-white btn-sm" %>
+              <%= actions(p) %>
             </td>
           </tr>
         <% end %>

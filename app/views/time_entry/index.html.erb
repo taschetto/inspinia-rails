@@ -50,9 +50,7 @@
               <%= te.user.first_name %>
             </td>
             <td class="project-actions">
-              <%= link_to raw("#{fa_icon "folder"} Visualizar"), te, class: "btn btn-white btn-sm" %>
-              <%= link_to raw("#{fa_icon "pencil"} Editar"), edit_time_entry_path(te), class: "btn btn-white btn-sm" %>
-              <%= link_to raw("#{fa_icon "close"} Excluir"), te, method: :delete, class: "btn btn-white btn-sm" %>
+              <%= actions(te) %>
             </td>
           </tr>
         <% end %>

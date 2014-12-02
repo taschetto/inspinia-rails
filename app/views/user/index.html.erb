@@ -33,9 +33,7 @@
             <td><%= u.last_name %></td>
             <td><%= mail_to u.email, u.email %></td>
             <td class="project-actions">
-              <%= link_to raw("#{fa_icon "folder"} Visualizar"), user_path(u), class: "btn btn-white btn-sm" %>
-              <%= link_to raw("#{fa_icon "pencil"} Editar"), edit_user_path(u), class: "btn btn-white btn-sm" %>
-              <%= link_to raw("#{fa_icon "close"} Excluir"), user_path(u), method: :delete, class: "btn btn-white btn-sm" %>
+              <%= actions(u) %>
             </td>
           </tr>
         <% end %>
