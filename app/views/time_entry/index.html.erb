@@ -20,11 +20,11 @@
       <thead>
         <tr>
           <th>#</th>
+          <th>Projeto</th>
           <th>Período</th>
           <th>Quantidade</th>
           <th>Memo</th>
           <th>Usuário</th>
-          <th>Tarefa</th>
           <th></th>
         </tr>
       </thead>
@@ -33,21 +33,21 @@
           <tr>
             <td><%= te.id %></td>
             <td>
+              <%= te.task.project.name %><br />
+              <small><%= te.task.name %></small>
+            </td>
+            <td>
               <strong><%= te.starts_at %></strong><br />
               <strong><%= te.ends_at %></strong>
             </td>
             <td>
-              <%= (te.ends_at - te.starts_at) / 1.hour %>
+              <%= te.duration %>
             </td>
             <td>
               <%= te.memo %>
             </td>
             <td>
               <%= te.user.first_name %>
-            </td>
-            <td>
-              <%= te.task.name %><br />
-              <small><%= te.task.description %></small>
             </td>
             <td class="project-actions">
               <%= link_to raw("#{fa_icon "folder"} Visualizar"), te, class: "btn btn-white btn-sm" %>
