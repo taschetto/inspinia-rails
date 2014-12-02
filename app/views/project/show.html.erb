@@ -1,12 +1,15 @@
 <% content_for :title, @project.name %>
 <% breadcrumb :project, @project %>
+<% content_for :actions do %>
+  <%= link_to "Tarefas", project_task_index_path(@project), class: "btn btn-primary" %>
+  <%= link_to "Editar", edit_project_path(@project), class: "btn btn-danger" %>
+<% end %>
 
 <div class="ibox">
   <div class="ibox-content">
     <div class="row">
       <div class="col-lg-12">
         <div class="m-b-md">
-          <%= link_to "Editar", edit_project_path(@project), class: "btn btn-white btn-xs pull-right" %>
           <h1><%= @project.name %></h1>
           <h3><%= @project.description %></h3>
         </div>
@@ -34,11 +37,6 @@
           <dt>Atualizado em:</dt> <dd><%= @project.updated_at %></dd>
           <dt>Criado em:</dt> <dd><%= @project.created_at %></dd>
         </dl>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <%= link_to "Tarefas", project_task_index_path(@project), class: "btn btn-white btn-xs pull-right" %>
       </div>
     </div>
   </div>
