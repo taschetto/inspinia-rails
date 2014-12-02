@@ -33,8 +33,8 @@
           <tr>
             <td><%= te.id %></td>
             <td>
-              <%= te.task.project.name %><br />
-              <small><%= te.task.name %></small>
+              <%= link_to te.task.project.name, te.task.project %><br />
+              <small><%= link_to te.task.name, te.task %></small>
             </td>
             <td>
               <strong><%= te.starts_at %></strong><br />
@@ -47,7 +47,7 @@
               <%= te.memo %>
             </td>
             <td>
-              <%= te.user.first_name %>
+              <%= link_to te.user.first_name, te.user %>
             </td>
             <td class="project-actions">
               <%= actions(te) %>
