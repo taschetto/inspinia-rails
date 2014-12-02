@@ -9,6 +9,9 @@ ruby '2.1.3'
 gem 'pg'
 gem 'seed_dump'
 
+# Authorization system
+gem 'pundit'
+
 # User authentication
 gem 'devise'
 
