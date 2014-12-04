@@ -31,6 +31,14 @@ class UserController < ApplicationController
   end
 
   def update
+
+    authorize @user, :update?
+
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+
     if @user.update_attributes(user_params)
       flash[:notice] = 'User has been successfully updated.'
       respond_with(@user, location: @user)
@@ -41,6 +49,7 @@ class UserController < ApplicationController
   end
 
   def edit
+      authorize @user, :edit?
       respond_with(@user)
   end
 

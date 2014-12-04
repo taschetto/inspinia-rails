@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   protected
 
   def layout_by_resource
@@ -19,4 +21,11 @@ class ApplicationController < ActionController::Base
       "application"
     end
   end
+
+  private
+
+  def user_not_authorized
+    flash[:error] = "You are not authorized to perform this action."
+    redirect_to(request.referrer || root_path)
+  end  
 end
