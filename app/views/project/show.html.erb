@@ -48,9 +48,18 @@
   </div>
   <div class="col-lg-3">
     <div class="wrapper wrapper-content project-manager">
-      <h4>Resumo do Cliente</h4>
+      <h4>Resumo da Organização</h4>
       <h2><%= @project.organization.name %></h2>
       <h3><%= @project.organization.full_name %></h3>
+      <% if @project.organization.is_company? %>
+      <span class="btn btn-outline btn-primary dim" type="button"><i class="fa fa-star"></i> Fator 7</span>
+      <% end %>
+      <% if @project.organization.is_client? %>
+      <span class="btn btn-outline btn-danger dim" type="button"><i class="fa fa-heart"></i> Cliente</span>
+      <% end %>
+      <% if @project.organization.is_vendor? %>
+      <span class="btn btn-outline btn-success dim" type="button"><i class="fa fa-truck"></i> Fornecedor</span>
+      <% end %>
       <h5>Projetos</h5>
       <ul class="tag-list" style="padding: 0">
       <% @project.organization.projects.each do |p| %>
