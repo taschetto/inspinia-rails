@@ -63,14 +63,14 @@ $(document).ready(function () {
 
     // Fixed Sidebar
     // unComment this only whe you have a fixed-sidebar
-            //    $(window).bind("load", function() {
-            //        if($("body").hasClass('fixed-sidebar')) {
-            //            $('.sidebar-collapse').slimScroll({
-            //                height: 'auto',
-            //                railOpacity: 0.9,
-            //            });
-            //        }
-            //    })
+                $(window).bind("load", function() {
+                    if($("body").hasClass('fixed-sidebar')) {
+                        $('.sidebar-collapse').slimScroll({
+                            height: 'auto',
+                            railOpacity: 0.9,
+                        });
+                    }
+                })
 
     $(window).bind("load resize click scroll", function() {
         if(!$("body").hasClass('body-small')) {
