@@ -1,27 +1,37 @@
 <% content_for :title, @user.first_name %>
 <% breadcrumb :user, @user %>
+<% content_for :actions do %>
+  <%= link_to "Editar", edit_user_path(@user), class: "btn btn-danger" %>
+<% end %>
 
-<div class="ibox">
-  <div class="ibox-content">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="m-b-md">
-          <%= link_to "Editar", edit_user_path(@user), class: "btn btn-white btn-xs pull-right" %>
-          <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
-          <% if @user.profile_picture? %>
-          <div class="col-lg-2">
-              <span><%= image_tag @user.profile_picture, class: "img-circle", alt: "#{@user.first_name} #{@user.last_name}", size: "300" %></span>
+<div class="col-md-4">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Perfil</h5>
+    </div>
+    <div>
+      <% if @user.profile_picture? %>
+      <div class="ibox-content no-padding border-left-right">
+        <%= image_tag @user.profile_picture, class: "img-responsive", alt: "" %>
+      </div>
+      <% end %>
+      <div class="ibox-content profile-content">
+        <h4><strong><%= "#{@user.first_name} #{@user.last_name}" %></strong></h4>
+        <p><%= fa_icon "map-marker" %> <%= @user.location %></p>
+        <h5>
+          About me
+        </h5>
+        <p>
+          <%= @user.about %>
+        </p>
+        <div class="user-button">
+          <div class="row">
+            <div class="col-md-12">
+              <%= mail_to @user.email, raw("#{fa_icon "envelope"} #{@user.email}"), class: "btn btn-primary btn-sm btn-block" %>
+            </div>
+            </div>
           </div>
-          <% end %>
-          <div class="col-lg-10">
-            <dl class="dl-horizontal">
-              <dt>First Name:</dt> <dd><%= @user.first_name %></dd>
-              <dt>Last Name:</dt> <dd><%= @user.last_name %></dd>
-              <dt>E-mail:</dt> <dd><%= @user.email %></dd>
-              <dt>Location:</dt> <dd><%= @user.location %></dd>
-              <dt>About:</dt> <dd><%= @user.about %></dd>
-            </dl>
-          </div>
+        </div>
       </div>
     </div>
   </div>
