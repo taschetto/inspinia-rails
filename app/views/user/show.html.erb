@@ -18,6 +18,7 @@
       <div class="ibox-content profile-content">
         <h4><strong><%= "#{@user.first_name} #{@user.last_name}" %></strong></h4>
         <p><%= fa_icon "map-marker" %> <%= @user.location %></p>
+        <p><%= @user.organization.nil? ? '' : @user.organization.name %></p>
         <h5>
           About me
         </h5>

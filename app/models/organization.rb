@@ -1,5 +1,6 @@
 class Organization < ActiveRecord::Base
   has_many :projects
+  has_many :users
   before_destroy :check_for_projects
   usar_como_cnpj :cnpj
 

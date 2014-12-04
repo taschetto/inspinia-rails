@@ -5,6 +5,11 @@
         <div class="ibox-content">
           <div class="row">
             <div class="col-sm-12 b-r">
+            <div class="form-group">
+              <div class="form-group">
+                 <%= f.label :organization %><br />
+                 <%= f.select :organization_id, options_for_select(Organization.all.map {|s| [s.name, s.id]}, @user.organization_id), {}, class:  "form-control" %>
+              </div>
               <div class="form-group">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, placeholder: "E-mail", class: "form-control" %>
@@ -50,6 +55,12 @@
                 <%= f.label :password_confirmation %><br />
                 <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation", class: "form-control" %>
               </div>
+
+              <div class="form-group">
+                <%= f.label :admin %>
+                <%= f.check_box :admin %><br />
+              </div>
+            </div>              
             </div>
           </div>
         </div>

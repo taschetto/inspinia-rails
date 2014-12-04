@@ -12,6 +12,7 @@
           <th>#</th>
           <th>Nome</th>
           <th>Sobrenome</th>
+          <th>Empresa</th>
           <th>E-mail</th>
           <th></th>
         </tr>
@@ -22,6 +23,7 @@
             <td><%= u.id %></td>
             <td><%= u.first_name %></td>
             <td><%= u.last_name %></td>
+            <td><%= u.organization.nil? ? '' : u.organization.name %></td>
             <td><%= mail_to u.email, u.email %></td>
             <td class="project-actions">
               <%= actions(u) %>

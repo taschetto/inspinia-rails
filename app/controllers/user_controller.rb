@@ -31,7 +31,7 @@ class UserController < ApplicationController
   end
 
   def update
-    authorize @user, :update?
+    #authorize @user, :update?
 
     if params[:user][:password].blank?
       params[:user].delete(:password)
@@ -48,7 +48,7 @@ class UserController < ApplicationController
   end
 
   def edit
-      authorize @user, :edit?
+      #authorize @user, :edit?
       respond_with(@user)
   end
 
@@ -69,6 +69,6 @@ class UserController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :location, :about, :profile_picture, :password, :password_confirmation )
+    params.require(:user).permit(:first_name, :last_name, :email, :location, :about, :profile_picture, :password, :password_confirmation, :admin, :organization_id )
   end  
 end

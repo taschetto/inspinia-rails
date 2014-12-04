@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  belongs_to :organization
   has_many :time_entries
   before_destroy :check_for_time_entries
 
