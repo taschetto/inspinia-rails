@@ -31,7 +31,6 @@ class UserController < ApplicationController
   end
 
   def update
-
     authorize @user, :update?
 
     if params[:user][:password].blank?
