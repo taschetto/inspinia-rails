@@ -5,5 +5,5 @@
 <% end %>
 
 <%= form_for @user, id: "user" do |f| %>
-<%= render partial: "form", object: @user, as: 'user' %>
-<% end %>    
+  <%= render partial: "form", locals: { user: @user, f: f } %>
+<% end %>
