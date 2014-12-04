@@ -29,6 +29,59 @@
             <div class="col-md-12">
               <%= mail_to @user.email, raw("#{fa_icon "envelope"} #{@user.email}"), class: "btn btn-primary btn-sm btn-block" %>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-8">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Atividades</h5>
+    </div>
+    <div class="ibox-content">
+      <div>
+        <div class="feed-activity-list">
+          <div class="feed-element">
+            <a href="#" class="pull-left">
+              <%= fa_icon "plus 2x" %>
+            </a>
+            <div class="media-body">
+              <small class="pull-right text-navy">1m atrás</small>
+              Criou um lançamento na tarefa <strong>X Y Z</strong>. <br>
+              <small class="text-muted">Hoje, 16:21  - 03/11/2014</small>
+            </div>
+          </div>
+          <div class="feed-element">
+            <a href="#" class="pull-left">
+              <%= fa_icon "edit 2x" %>
+            </a>
+            <div class="media-body">
+              <small class="pull-right text-navy">2h atrás</small>
+              Editou a tarefa <strong>A B C</strong> no projeto <strong>X Y Z</strong>. <br>
+              <small class="text-muted">Terça, 23:21  - 01/11/2014</small>
+            </div>
+          </div>
+          <div class="feed-element">
+            <a href="#" class="pull-left">
+              <%= fa_icon "plus 2x" %>
+            </a>
+            <div class="media-body">
+              <small class="pull-right text-navy">10 dias atrás</small>
+              Criou uma despesa no projeto <strong>X Y Z</strong>. <br>
+              <small class="text-muted">Domingo, 16:21  - 03/11/2014</small>
+            </div>
+          </div>
+          <div class="feed-element">
+            <a href="#" class="pull-left">
+              <%= fa_icon "minus 2x" %>
+            </a>
+            <div class="media-body">
+              <small class="pull-right text-navy">ano passado</small>
+              Removeu um sei-lá-o-que de <strong>sei- lá-de-onde</strong>. <br>
+              <small class="text-muted">Domingo, 16:21  - 03/11/2014</small>
             </div>
           </div>
         </div>
