@@ -5,16 +5,7 @@
 <% breadcrumb :organizations %>
 
 <div class="ibox float-e-margins">
-  <div class="ibox-title">
-    <h5>Organizações</h5>
-    <div class="ibox-tools">
-      <a class="collapse-link">
-        <i class="fa fa-chevron-up"></i>
-      </a>
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      </a>
-    </div>
-  </div>
+  <%= render partial: "layouts/float_header", locals: { title: "Organizações" } %>
   <div class="ibox-content">
     <table class="table table-hover">
       <thead>
