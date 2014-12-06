@@ -1,0 +1,35 @@
+<% content_for :title, "Usuários" %>
+<% content_for :actions do %>
+  <% link_to "Novo Usuário", new_user_path, class: "btn btn-primary"%>
+<% end %>
+
+<div class="ibox float-e-margins">
+  <%= render partial: "layouts/float_header", locals: { title: "Usuários" } %>
+  <div class="ibox-content">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Sobrenome</th>
+          <th>Empresa</th>
+          <th>E-mail</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |u| %>
+          <tr>
+            <td><%= u.id %></td>
+            <td><%= u.first_name %></td>
+            <td><%= u.last_name %></td>
+            <td><%= u.organization.nil? ? '' : u.organization.name %></td>
+            <td><%= mail_to u.email, u.email %></td>
+            <td class="project-actions">
+              <%= actions(u) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  root 'dashboard#index'
+  devise_for :users, controllers: { registrations: 'registrations' }
 
-  root 'home#index'
+  shallow do
+    resources :organization do
+      resources :project do
+        resources :task
+      end
+    end
+    resources :user do
+      resources :time_entry
+    end
+  end
+
+  resources :project, only: :index
+  resources :task, only: :index
+  resources :time_entry, only: :index
 end

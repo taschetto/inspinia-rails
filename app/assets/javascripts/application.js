@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
+//= require moment
+//= require moment/pt-br
+//= require bootstrap-datetimepicker
+//= require_tree ../../../vendor/assets/javascripts/inspinia/
 //= require_tree .
-//= require_tree ../../../vendor/assets/javascripts/inspinia/.

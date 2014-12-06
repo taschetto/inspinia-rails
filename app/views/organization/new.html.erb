@@ -1,0 +1,9 @@
+<% content_for :title, "Nova Organização" %>
+<% breadcrumb :new_organization %>
+<% content_for :actions do %>
+  <%= link_to "Salvar Organização", "#", class: "btn btn-primary pull-right", onclick: '$(".new_organization").submit()' %>
+<% end %>
+
+<%= form_for @organization, url: organization_index_path do |f| %>
+  <%= render partial: "form", locals: { f: f } %>
+<% end %>

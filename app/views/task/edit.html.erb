@@ -1,0 +1,9 @@
+<% content_for :title, "Editar #{@task.name}" %>
+<% breadcrumb :edit_task, @task %>
+<% content_for :actions do %>
+<%= link_to "Atualizar Tarefa", "#", class: "btn btn-primary pull-right", onclick: '$(".edit_task").submit()' %>
+<% end %>
+
+<%= form_for @task do |f| %>
+  <%= render partial: "form", locals: { f: f } %>
+<% end %>

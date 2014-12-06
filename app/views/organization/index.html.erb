@@ -1,0 +1,46 @@
+<% content_for :title, "Organizações" %>
+<% content_for :actions do %>
+  <% link_to "Nova Organização", new_organization_path, class: "btn btn-primary"%>
+<% end %>
+<% breadcrumb :organizations %>
+
+<div class="ibox float-e-margins">
+  <%= render partial: "layouts/float_header", locals: { title: "Organizações" } %>
+  <div class="ibox-content">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>CNPJ</th>
+          <th>Localização</th>
+          <th>Outros</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @organizations.each do |org| %>
+          <tr>
+            <td><%= org.id %></td>
+            <td>
+              <strong><%= org.name %></strong><br />
+              <small><%= org.full_name %></small>
+            </td>
+            <td><%= org.cnpj %></td>
+            <td>
+              <%= org.city %><br />
+              <small><%= org.state %>, <%= org.country %></small>
+            </td>
+            <td>
+              <%= link_to org.website, org.website %><br />
+              <small><%= mail_to org.primary_email, org.primary_email %></small>
+            </td>
+            <td class="project-actions">
+              <%= actions(org) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

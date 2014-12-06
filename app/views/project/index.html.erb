@@ -1,0 +1,40 @@
+<% content_for :title, "Projects" %>
+<% content_for :actions do %>
+  <% link_to "Novo Projeto", new_organization_project_path(@organization), class: "btn btn-primary" %>
+<% end if @organization %>
+<% breadcrumb :projects, @organization if @organization %>
+<% breadcrumb :all_projects if !@organization %>
+
+<div class="ibox float-e-margins">
+  <%= render partial: "layouts/float_header", locals: { title: "Projetos" } %>
+  <div class="ibox-content">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Projeto</th>
+          <th>Budget</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @projects.each do |p| %>
+          <tr>
+            <td><%= p.id %></td>
+            <td>
+              <strong><%= p.name %></strong><br />
+              <small><%= p.description %></small>
+            </td>
+            <td>
+              <%= p.budget %><br />
+              <small>Bloqueia: <%= p.block %></small>
+            </td>
+            <td class="project-actions">
+              <%= actions(p) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
